@@ -74,7 +74,8 @@ toObject (array1,array2)
 
 // Given an object with keys and values, create two arrays: one which contains the object's keys, and one which contains the object's values. Wrap this into a function which takes in one object that contains keys and values, and returns a different object that contains two keys. The first key should be named "keys" and will have the first array as a value. The second key should be named "values" and will have the second array as a value.
 
-var selma = {
+
+var selma = {//object
 	land: "Nederland", 
 	provincie: "Noord-Holland", 
 	stad: "Amsterdam", 
@@ -83,28 +84,97 @@ var selma = {
 	verdieping: "kelder"
 }
 
-var keys = (Object.keys(selma)) //maakt een array van alle keys
-// console.log (keys)
-// var values = (Object.values(selma)) --> Console zegt dat dit geen bestaande functie is
-
-
-//Moet nog aan de waardes zien te komen.
-
-for(var key in selma) {
-    var value = selma[key];
+var dierentuin = {//controle-object, om zeker te weten dat mijn functie niet 'toevallig' blijkt te werken
+	panda: "bamboe", 
+	kat: "brokjes", 
+	kameel: "zand", 
 }
 
-console.log (value)
+function objectChanger (enterObject){
+	var newObject = {//object gevuld met 2 keys, maar nog twee lege arrays aan values
+		keys: [],
+		values: []
+	}
 
-function toArray (object) {
-	var array [];
+newObject.keys = (Object.keys(enterObject)) //maakt een array van alle keys, en zet deze als waarde in het object.
+
+var x
+for (x in enterObject) {
+    newObject.values.push(enterObject[x]);//loopt door het object om de waardes te vinden, en pusht deze als waarde in de values van newObject.
+}
+console.log(newObject)//zorgt dat de functie geprint wordt
 }
 
-// examples:
-// { exciting: "markets", exotic: "britain" } --> { keys: ["exciting", "exotic"], values: ["markets", "britain"] }
-// { a: "x", b: "y", c: "z" } --> { keys: ["a", "b", "c"], values: ["x", "y", "z"] }
 
-// Deze kwam ik helaas niet helemaal uit. Morgen nog even naar kijken.
+objectChanger(selma)
+objectChanger(dierentuin)
+
+
+//OUDE CODE----------------------------------------------------------------
+// var selma = {
+// 	land: "Nederland", 
+// 	provincie: "Noord-Holland", 
+// 	stad: "Amsterdam", 
+// 	buurt: "De Baarsjes", 
+// 	straat: "Adm de Ruijterweg", 
+// 	verdieping: "kelder"
+// }
+
+// var dierentuin = {
+// 	panda: "bamboe", 
+// 	kat: "brokjes", 
+// 	kameel: "zand", 
+// }
+
+// function objectChanger (enterObject){
+// 	var newObject = {
+// 		keys: [],
+// 		values: []
+// 	}
+
+// newObject.keys = (Object.keys(enterObject)) //maakt een array van alle keys, 
+
+// for (var i = 0; i < enterObject.keys.length; i++) {
+// 	console.log(enterObject.keys[i])
+// 	newObject.values.push(enterObject.keys[i])
+// }
+// console.log (newObject.keys)
+// }
+
+// //objectChanger(selma)
+// objectChanger(dierentuin)
+
+// //-------------------------------------------------------------------
+// //MET FOR-IN-LOOP PROBEREN
+
+
+// var dierentuin = {
+// 	panda: "bamboe", 
+// 	kat: "brokjes", 
+// 	kameel: "zand", 
+// }
+
+// function objectChanger (enterObject){
+// 	var newObject = {
+// 		keys: [],
+// 		values: []
+// 	}
+
+// newObject.keys = (Object.keys(enterObject)) //maakt een array van alle keys, 
+
+// var x
+// for (x in enterObject) {
+//     newObject.values.push(enterObject[x]);
+// }
+// console.log(newObject)
+// }
+
+// //objectChanger(selma)
+// objectChanger(dierentuin)	
+//OUDE CODE------------------------------------------------------------------------
+
+
+
 
 
 
