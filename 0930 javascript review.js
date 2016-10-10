@@ -52,6 +52,7 @@ function reversify (insertStringHere){
 console.log (reversify(maryPoppins))
 //OHMYGOD hier heb ik dus een week over gedaan. En het is me wel gelukt, en dat leverde echt een euforisch moment op, maar ik zou het nu niet kunnen herproduceren denk ik.
 //Overigens kan deze misschien nog wel korter maar dan moet ik er morgen nog even naar kijken
+//Jimmy: CharAt methode: leest een string als een soort array, scheelt twee loops.
 
 
 // write a function that takes in two arrays of the same length as parameters. From those two arrays, create, then return an object which contains the elements of the first array as keys, and the elements of the second array as values.
