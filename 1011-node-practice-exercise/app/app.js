@@ -1,3 +1,7 @@
 var hello = require( __dirname + '/one/two/hello' )
 
-hello () //( process.argv )
+////for functions: 
+//hello () //( process.argv )
+
+////for objects:
+hello.notseen()
