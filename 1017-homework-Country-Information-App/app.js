@@ -12,7 +12,9 @@
 var fs = require ("fs")
 var parsedCountries = require( __dirname + '/json-file-reader' )
 
-console.log("Country: " + parsedCountries)
+parsedCountries( process.argv[2] )
+
+
 
 // standaard process.argv:
 //var whichCountry = (process.argv[2])
@@ -23,12 +25,12 @@ console.log("Country: " + parsedCountries)
 
 
 // standaard readfile dingie:
-fs.readFile(__dirname + "/countries.json", "utf8", function(err, data) {
-			if (err) throw err;
-			var whichCountry = JSON.parse(process.argv[2])
-			console.log("Country: " + whichCountry);
-			console.log("Top Level Domain: " + whichCountry.topLevelDomain)
-		})
+// fs.readFile(__dirname + "/countries.json", "utf8", function(err, data) {
+// 			if (err) throw err;
+// 			var whichCountry = JSON.parse(process.argv[2])
+// 			console.log("Country: " + whichCountry);
+// 			console.log("Top Level Domain: " + whichCountry.topLevelDomain)
+// 		})
 
 //Output informatie moet zijn:
 // Country: <country name>

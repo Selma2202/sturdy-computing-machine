@@ -8,18 +8,65 @@
 //standaard openen met:
 var fs = require ("fs")
 
-function countryParser (countryName){}
-fs.readFile(__dirname + "/countries.json", "utf8", function(err, data) {
-	if (err) throw err;
-	data = JSON.parse(data)
+function countryParser (countryName){
+	fs.readFile(__dirname + "/countries.json", "utf8", function(err, data) {
+		if (err) throw err;
+
+
+		var parsedData = JSON.parse(data)
 			// console.log(data)
-		})
 
-
-
+			for (var i = 0; i < parsedData.length; i++) {//dit moest kleiner zijn, en niet kleiner of gelijk aan. weet nog niet waarom.
+				// var landObject = parsedData[i]
+				if (parsedData[i].name == countryName) {
+		// return (i)
+		//console.log (i)
+		console.log ("Country: " + parsedData[i].name)
+		console.log ("Top Level Domain: " + parsedData[i].topLevelDomain)
+	}
+}
+})
 }
 
+
+//countryParser ("Madagascar")
+// countryParser ("Vietnam")
+
 module.exports = countryParser
+
+
+//deze gebruiken?
+// for (var i = 0; i <= data.length; i++) {
+// 				if (countryName in data) {
+// 		//return (i)
+// 		console.log (i)
+// 	}
+
+// //of deze misschien?
+// for (countryName in data) {
+//     //xxx
+// }
+
+// doorzoek het bestand op <countryname>
+// geef ons het objectnummer waar <countryname> in voorkomt
+// voor dit objectnummer, geef ons ook topLevelDomain
+
+// for-loop die de hele tijd loopt en telt op welk object we zitten
+// if-loop die stopt zodra we bij het juiste land zijn
+// 	we hebben dan dus het objectnummer, en kunnen daarmee ook de topLevelDomain eruit halen
+
+//--------------------------------------------------------------
+
+
+
+// }
+
+// module.exports = countryParser
+
+// function findThingInObject (enterObject){
+
+// 	}
+
 
 
 
