@@ -42,7 +42,7 @@ Instructions:
 
 
  - 3b. Write a function being called, showing the instruction execution order.
- 
+
 - From memory
 
 - When using a .js file to autocomplete/check functions, loops and colors

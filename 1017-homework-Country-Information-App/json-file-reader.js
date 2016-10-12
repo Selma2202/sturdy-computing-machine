@@ -1,20 +1,14 @@
 var fs = require ("fs") //standaard openen met:
 
-function countryParser (countryName){ //countryname is the parameter that is put in the third place in terminal.
-	fs.readFile(__dirname + "/countries.json", "utf8", function(err, data) {
+function countryParser (filename, callback){ //countryname is the parameter that returns from the callback function.
+	fs.readFile(filename, "utf8", function(err, data) {
 		if (err) throw err;//error statement
 
 		var parsedData = JSON.parse(data)//works as well by simply redefining data instead of making a new variable, but this worked better for readability purposes
+		callback(parsedData)
 
-			for (var i = 0; i < parsedData.length; i++) {//make sure to use "<" in stead of "<="
-				if (parsedData[i].name.toLowerCase() == countryName.toLowerCase()) {//to make input case insensitive
-					console.log ("Country: " + parsedData[i].name)
-					console.log ("Top Level Domain: " + parsedData[i].topLevelDomain)
-				}
-			}
-		})
+	})
 }
-
 
 module.exports = countryParser
 

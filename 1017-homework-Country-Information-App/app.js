@@ -11,4 +11,14 @@
 var fs = require ("fs") //standaard openen met: 
 var parsedCountries = require( __dirname + '/json-file-reader' ) //call upon json-file-reader.js module
 
-parsedCountries( process.argv[2] )//takes the third word/string from the command line as a parameter in json-file-reader.js
+var countryName = ( process.argv[2] ) //takes the third word/string from the command line as a parameter in json-file-reader.js
+
+parsedCountries( __dirname + '/countries.json', function(data) {//only data in the callback-function, since this is the only thing returned by the other file
+
+	for (var i = 0; i < data.length; i++) {//make sure to use "<" in stead of "<="
+				if (data[i].name.toLowerCase() == countryName.toLowerCase()) {//to make input case insensitive
+					console.log ("Country: " + data[i].name)
+					console.log ("Top Level Domain: " + data[i].topLevelDomain)
+				}
+			}
+		})
