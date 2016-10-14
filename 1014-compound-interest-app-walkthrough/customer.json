@@ -1,18 +1,16 @@
 {
 	"name": "Selma",
 	"age": 25,
-	"Finances": {
+	"finances": {
 		"startcapital": 1000,
 		"monthlyadd": 100
-	}
-	"pension" {
+	},
+	"pension": {
 		"age": 65,
 		"interest": {
-			"pessimistic": 2,
-			"average": 4,
-			"optimistic": 8
+			"pessimistic": 1.02,
+			"average": 1.04,
+			"optimistic": 1.08
 		}
 	}
 }
-// all datatypes are ok
-// make sure keys are between aanhalingstekens too
