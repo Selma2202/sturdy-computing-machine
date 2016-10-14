@@ -27,8 +27,7 @@ var calcCompound = ( customer ) => {
 		//console.log ( "I looped " + i + " times")//dit is om te checken of de loop werkt
 
 		//Add monthly spend to all the scenarios
-		customer.pension.endamount += (customer.finances.monthlyadd * 12 )
-		//customer.pension.endamount.pessimistic += (customer.finances.monthlyadd * 12 )
+		customer.pension.endamount.pessimistic += (customer.finances.monthlyadd * 12 )
 		customer.pension.endamount.average += (customer.finances.monthlyadd * 12 )
 		customer.pension.endamount.optimistic += (customer.finances.monthlyadd * 12 )
 
@@ -41,9 +40,13 @@ var calcCompound = ( customer ) => {
 	console.log ("Welcome " + customer.name + " to our pension planner!")
 	console.log ("You are starting with " + customer.finances.startcapital + " and add a monthly amount of " + customer.finances.monthlyadd)
 	console.log ("When you retire at age " + customer.pension.age + " you will have the following:")
-	console.log ("In a pessimistic scenario: €" + customer.pension.endamount.pessimistic)
-	console.log ("In a average scenario: €" + customer.pension.endamount.average)
-	console.log ("In a optimistic scenario: €" + customer.pension.endamount.optimistic)
+	console.log ("In a pessimistic scenario: €" + roundDecimal(customer.pension.endamount.pessimistic))
+	console.log ("In a average scenario: €" + roundDecimal(customer.pension.endamount.average))
+	console.log ("In a optimistic scenario: €" + roundDecimal(customer.pension.endamount.optimistic))
+}
+
+var roundDecimal = (number) => {
+	return Math.round (number * 100 ) / 100
 }
 
 
