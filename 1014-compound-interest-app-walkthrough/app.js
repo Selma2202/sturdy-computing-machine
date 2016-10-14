@@ -28,7 +28,7 @@ var calcCompound = ( customer ) => {
 
 		//Add monthly spend to all the scenarios
 		customer.pension.endamount += (customer.finances.monthlyadd * 12 )
-		customer.pension.endamount.pessimistic += (customer.finances.monthlyadd * 12 )
+		//customer.pension.endamount.pessimistic += (customer.finances.monthlyadd * 12 )
 		customer.pension.endamount.average += (customer.finances.monthlyadd * 12 )
 		customer.pension.endamount.optimistic += (customer.finances.monthlyadd * 12 )
 
