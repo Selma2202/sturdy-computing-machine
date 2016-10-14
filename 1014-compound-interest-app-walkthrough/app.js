@@ -4,6 +4,11 @@
 const fs = require ( "fs")
 // const is a var that is not supposed to change throughout the file
 
+// help function for later on
+var roundDecimal = (number) => {
+	return Math.round (number * 100 ) / 100
+}
+
 // Read the customer data json
 fs.readFile( __dirname + "/customer.json", "utf-8", ( err, data ) => {//new kind of function writing
 //Parse the file to a readable object
@@ -45,9 +50,7 @@ var calcCompound = ( customer ) => {
 	console.log ("In a optimistic scenario: €" + roundDecimal(customer.pension.endamount.optimistic))
 }
 
-var roundDecimal = (number) => {
-	return Math.round (number * 100 ) / 100
-}
+
 
 
 // Old syntax
