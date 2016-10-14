@@ -5,9 +5,18 @@ const fs = require ( "fs")
 // const is a var that is not supposed to change throughout the file
 
 // help function for later on
-var roundDecimal = (number) => {
+let roundDecimal = (number) => {
 	return Math.round (number * 100 ) / 100
 }
+let addCommas = ( number ) => {
+	return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+let prettyNr = (number) => {
+	return addCommas(roundDecimal (number))
+}
+
+
 
 // Read the customer data json
 fs.readFile( __dirname + "/customer.json", "utf-8", ( err, data ) => {//new kind of function writing
@@ -45,9 +54,9 @@ var calcCompound = ( customer ) => {
 	console.log ("Welcome " + customer.name + " to our pension planner!")
 	console.log ("You are starting with " + customer.finances.startcapital + " and add a monthly amount of " + customer.finances.monthlyadd)
 	console.log ("When you retire at age " + customer.pension.age + " you will have the following:")
-	console.log ("In a pessimistic scenario: €" + roundDecimal(customer.pension.endamount.pessimistic))
-	console.log ("In a average scenario: €" + roundDecimal(customer.pension.endamount.average))
-	console.log ("In a optimistic scenario: €" + roundDecimal(customer.pension.endamount.optimistic))
+	console.log ("In a pessimistic scenario: €" + prettyNr(customer.pension.endamount.pessimistic))
+	console.log ("In a average scenario: €" + prettyNr(customer.pension.endamount.average))
+	console.log ("In a optimistic scenario: €" + prettyNr(customer.pension.endamount.optimistic))
 }
 
 
