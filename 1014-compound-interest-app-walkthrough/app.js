@@ -5,17 +5,16 @@ const fs = require ( "fs")
 // const is a var that is not supposed to change throughout the file
 
 // help function for later on
-let roundDecimal = (number) => {
+let roundDecimal 	= (number) => {
 	return Math.round (number * 100 ) / 100
 }
-let addCommas = ( number ) => {
+let addCommas 		= ( number ) => {
 	return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-let prettyNr = (number) => {
+let prettyNr 		= (number) => {
 	return addCommas(roundDecimal (number))
 }
-
 
 
 // Read the customer data json
@@ -27,12 +26,12 @@ calcCompound ( parsedData )
 } )
 
 // Function to calculate compound interest from a customer object
-var calcCompound = ( customer ) => {
+let calcCompound = ( customer ) => {
 	// Set end amount prop and calculate total duration
 	customer.pension.endamount = {
-		pessimistic: customer.finances.startcapital,
-		average: customer.finances.startcapital,
-		optimistic: customer.finances.startcapital
+		pessimistic: 	customer.finances.startcapital,
+		average: 		customer.finances.startcapital,
+		optimistic: 	customer.finances.startcapital
 	}
 	customer.pension.duration = (customer.pension.age - customer.age)
 
@@ -41,22 +40,23 @@ var calcCompound = ( customer ) => {
 		//console.log ( "I looped " + i + " times")//dit is om te checken of de loop werkt
 
 		//Add monthly spend to all the scenarios
-		customer.pension.endamount.pessimistic += (customer.finances.monthlyadd * 12 )
-		customer.pension.endamount.average += (customer.finances.monthlyadd * 12 )
-		customer.pension.endamount.optimistic += (customer.finances.monthlyadd * 12 )
+		customer.pension.endamount.pessimistic 	+= (customer.finances.monthlyadd * 12 )
+		customer.pension.endamount.average 		+= (customer.finances.monthlyadd * 12 )
+		customer.pension.endamount.optimistic 	+= (customer.finances.monthlyadd * 12 )
 
 		//Calculate the added interest
-		customer.pension.endamount.pessimistic *= customer.pension.interest.pessimistic
-		customer.pension.endamount.average *= customer.pension.interest.average
-		customer.pension.endamount.optimistic *= customer.pension.interest.optimistic
+		customer.pension.endamount.pessimistic 	*= customer.pension.interest.pessimistic
+		customer.pension.endamount.average 		*= customer.pension.interest.average
+		customer.pension.endamount.optimistic 	*= customer.pension.interest.optimistic
 	}
-	//output our dwata
+	//Welcome customer
 	console.log ("Welcome " + customer.name + " to our pension planner!")
 	console.log ("You are starting with " + customer.finances.startcapital + " and add a monthly amount of " + customer.finances.monthlyadd)
 	console.log ("When you retire at age " + customer.pension.age + " you will have the following:")
-	console.log ("In a pessimistic scenario: €" + prettyNr(customer.pension.endamount.pessimistic))
-	console.log ("In a average scenario: €" + prettyNr(customer.pension.endamount.average))
-	console.log ("In a optimistic scenario: €" + prettyNr(customer.pension.endamount.optimistic))
+	//Output data
+	console.log ("In a pessimistic scenario: €" 	+ prettyNr(customer.pension.endamount.pessimistic))
+	console.log ("In a average scenario: €" 		+ prettyNr(customer.pension.endamount.average))
+	console.log ("In a optimistic scenario: €" 		+ prettyNr(customer.pension.endamount.optimistic))
 }
 
 
