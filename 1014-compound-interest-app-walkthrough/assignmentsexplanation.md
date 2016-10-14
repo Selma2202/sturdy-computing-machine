@@ -13,7 +13,9 @@ all functions and things used in the app-file are interdependant, so putting mer
 Hints: [{},{},{}], for loop
 
 Steps:
-- 
+- make an array of multiple objects.
+- leave the app as it is: all changes should be made in the module, since that's the functionality the app calls upon
+- check module for the times we have called upon the data and see if it needs changing.
 
 # SUPER MEGA UKULELE
 - Make a 'customers' folder with 10 customer json files (e.g. mentor.json, paul.json etc). Make your app read all files in this directory and write the results of the pension calculations to a 'customerprojections.json' file as an array of result objects.

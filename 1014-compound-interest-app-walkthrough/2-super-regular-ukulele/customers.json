@@ -1,0 +1,80 @@
+[{
+	"name": "Selma",
+	"age": 25,
+	"finances": {
+		"startcapital": 1000,
+		"monthlyadd": 100
+	},
+	"pension": {
+		"age": 65,
+		"interest": {
+			"pessimistic": 1.02,
+			"average": 1.04,
+			"optimistic": 1.08
+		}
+	}
+},
+{
+	"name": "Corine",
+	"age": 23,
+	"finances": {
+		"startcapital": 200,
+		"monthlyadd": 25
+	},
+	"pension": {
+		"age": 67,
+		"interest": {
+			"pessimistic": 1.02,
+			"average": 1.04,
+			"optimistic": 1.08
+		}
+	}
+},
+{
+	"name": "Francien",
+	"age": 27,
+	"finances": {
+		"startcapital": 2500,
+		"monthlyadd": 1000
+	},
+	"pension": {
+		"age": 62,
+		"interest": {
+			"pessimistic": 1.02,
+			"average": 1.04,
+			"optimistic": 1.08
+		}
+	}
+},
+{
+	"name": "Elize",
+	"age": 29,
+	"finances": {
+		"startcapital": 2600,
+		"monthlyadd": 200
+	},
+	"pension": {
+		"age": 65,
+		"interest": {
+			"pessimistic": 1.02,
+			"average": 1.04,
+			"optimistic": 1.08
+		}
+	}
+},
+{
+	"name": "Anne",
+	"age": 33,
+	"finances": {
+		"startcapital": 33000,
+		"monthlyadd": 2500
+	},
+	"pension": {
+		"age": 60,
+		"interest": {
+			"pessimistic": 1.02,
+			"average": 1.04,
+			"optimistic": 1.08
+		}
+	}
+}]

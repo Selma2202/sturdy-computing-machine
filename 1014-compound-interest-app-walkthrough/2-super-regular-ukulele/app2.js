@@ -8,13 +8,3 @@ const interestCalculator = require ( __dirname + "/interest-calculator")
 
 interestCalculator( process.argv ) 
 
-
-
-// Old syntax
-// fs.readFile( __dirname + "/customer.json", "utf-8", function ( err, data ) {
-
-// } )
-
-//geen comments in je json file:
-// all datatypes are ok
-// make sure keys are between aanhalingstekens too
