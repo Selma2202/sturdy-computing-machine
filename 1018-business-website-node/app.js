@@ -1,10 +1,7 @@
-const express = require ( 'express')
+const express = require ( 'express')//import express module
 const app = express ()
 
-console.log('Starting app')
+app.use(express.static('static/Jimmy-Selma-Coffee-Adventure'))//put the whole folder in the static folder, so that had to be included in the path
 
-app.use(express.static('static/Jimmy-Selma-Coffee-Adventure'))
-
-app.listen (3000, ()=>{
-	console.log('Express listening')
+app.listen (3000, ()=>{//hosts it on localhost:3000
 })
