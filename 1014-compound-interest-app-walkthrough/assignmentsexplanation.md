@@ -1,4 +1,4 @@
-Assignments Mentor:
+Assignments Mentor: 
 
 # Super mini ukulele
 - Modify the compound interest app to move the logic in a node module.
@@ -17,6 +17,8 @@ Steps:
 - leave the app as it is: all changes should be made in the module, since that's the functionality the app calls upon
 - check module for the times we have called upon the data and see if it needs changing.
 - it seems the module pretty much stays the same, except it has to happen x amount of times (as long as the array is long). In my case 5. When something needs to happen an x amount of time, we LOOP>
+- I now managed to get it to work for just one customer. Everywhere where it says [0], it might need to happen an x amount of time. 
+- So I need to get that part to loop. 
 
 # SUPER MEGA UKULELE
 - Make a 'customers' folder with 10 customer json files (e.g. mentor.json, paul.json etc). Make your app read all files in this directory and write the results of the pension calculations to a 'customerprojections.json' file as an array of result objects.
