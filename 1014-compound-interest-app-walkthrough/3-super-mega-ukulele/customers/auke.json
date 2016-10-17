@@ -1,0 +1,16 @@
+{
+	"name": "Auke",
+	"age": 27,
+	"finances": {
+		"startcapital": 1200,
+		"monthlyadd": 120
+	},
+	"pension": {
+		"age": 67,
+		"interest": {
+			"pessimistic": 1.02,
+			"average": 1.04,
+			"optimistic": 1.08
+		}
+	}
+}

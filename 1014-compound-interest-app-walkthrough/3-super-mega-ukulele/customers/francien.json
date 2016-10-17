@@ -1,0 +1,16 @@
+{
+	"name": "Francien",
+	"age": 27,
+	"finances": {
+		"startcapital": 2500,
+		"monthlyadd": 1000
+	},
+	"pension": {
+		"age": 62,
+		"interest": {
+			"pessimistic": 1.02,
+			"average": 1.04,
+			"optimistic": 1.08
+		}
+	}
+}

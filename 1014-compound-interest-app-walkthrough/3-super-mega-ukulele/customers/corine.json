@@ -1,0 +1,16 @@
+{
+	"name": "Corine",
+	"age": 23,
+	"finances": {
+		"startcapital": 200,
+		"monthlyadd": 25
+	},
+	"pension": {
+		"age": 67,
+		"interest": {
+			"pessimistic": 1.02,
+			"average": 1.04,
+			"optimistic": 1.08
+		}
+	}
+}
