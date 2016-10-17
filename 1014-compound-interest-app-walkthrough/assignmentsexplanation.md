@@ -16,6 +16,7 @@ Steps:
 - make an array of multiple objects.
 - leave the app as it is: all changes should be made in the module, since that's the functionality the app calls upon
 - check module for the times we have called upon the data and see if it needs changing.
+- it seems the module pretty much stays the same, except it has to happen x amount of times (as long as the array is long). In my case 5. When something needs to happen an x amount of time, we LOOP>
 
 # SUPER MEGA UKULELE
 - Make a 'customers' folder with 10 customer json files (e.g. mentor.json, paul.json etc). Make your app read all files in this directory and write the results of the pension calculations to a 'customerprojections.json' file as an array of result objects.

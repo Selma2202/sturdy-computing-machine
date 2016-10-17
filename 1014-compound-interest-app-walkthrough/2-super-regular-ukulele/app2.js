@@ -2,9 +2,9 @@
 
 // importing necessary modules
 const fs = require ( "fs")
-const interestCalculator = require ( __dirname + "/interest-calculator")
+const interestCalculator2 = require ( __dirname + "/interest-calculator2")
 // const is a var that is not supposed to change throughout the file
 
 
-interestCalculator( process.argv ) 
+interestCalculator2( process.argv ) 
 
