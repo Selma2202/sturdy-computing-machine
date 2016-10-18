@@ -8,7 +8,7 @@ const app = express ()
 
 // app.use( bodyParser() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
- extended: true
+	extended: true
 })); 
 
 //app.use(express.json());       // to support JSON-encoded bodies
@@ -45,22 +45,25 @@ app.get ('/search', (request, response) => {
 app.post('/search', (req, resp) => {
 	// resp.end(JSON.stringify(req.body));
 
+	
 	fs.readFile( __dirname + '/data.json', (error, data) => {
 		if (error) throw error
 
 			let resultArray = [];
+			
 			let parsedData = JSON.parse(data)
-			console.log("\nFor this input, I have the following data:")
+			console.log("\nSearch results will now be displayed in the browser")
 			for (var i = 0; i < parsedData.length; i++) {//make sure to use "<" in stead of "<="
 				if(req.body.searchbar == parsedData[i].firstName || req.body.searchbar == parsedData[i].lastName){
-					console.log("First name: " + parsedData[i].firstName)
-					console.log("Last name: " + parsedData[i].lastName)
-					console.log("E-mail: " + parsedData[i].email + "\n")
-
+					//console.log("First name: " + parsedData[i].firstName)
+					//console.log("Last name: " + parsedData[i].lastName)
+					//console.log("E-mail: " + parsedData[i].email + "\n")
+					resultArray.push(parsedData[i].firstName, parsedData[i].lastName, parsedData[i].email)
+				}
 			}
-		}
-		resp.render('returnuser', {data: parsedData})
-	})
+			//console.log (resultArray)
+			resp.render('returnuser', {data: resultArray})
+		})
     //var firstName = req.body.firstName,
 })
 //bodyparser iets
