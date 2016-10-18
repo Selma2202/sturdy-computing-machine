@@ -3,7 +3,19 @@
 //including necessary modules
 const express = require ('express')
 const fs = require ('fs')
+const bodyParser = require('body-parser') //al in twee tutorials gezien dat het gebruik wordt, dus gebruiken
 const app = express ()
+
+app.use( bodyParser() );       // to support JSON-encoded bodies
+//app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+//  extended: true
+//})); 
+
+//app.use(express.json());       // to support JSON-encoded bodies
+//app.use(express.urlencoded()); // to support URL-encoded bodies
+
+
+
 
 app.set ('view engine', 'pug')
 app.set ('views', __dirname + '/views')
@@ -27,7 +39,18 @@ app.get ('/search', (request, response) => {
 
 
 //route 3: takes in the post request from your form, then displays matching users on a new page. Users should be matched based on whether either their first or last name contains the input string.
+//http://stackoverflow.com/questions/5710358/how-to-retrieve-post-query-parameters-in-express
+//https://www.youtube.com/watch?v=vKlybue_yMQ
 
+
+
+
+app.post('/search', (req, resp) => {
+	resp.end(JSON.stringify(req.body));
+
+    //var firstName = req.body.firstName,
+})
+//bodyparser iets
 
 
 // app.post('/postquery', function(input, res) {

@@ -6,22 +6,23 @@ html
 		br
 		br
 		table
-			form(method='post', action= __dirname + '../data.json')
+			form(method='POST', action= __dirname + '../data.json')
+				input(type='hidden', name='_method', value='PUT')
 			tr
 				td
 					label First Name: 
 				td
-					input(name='firstName', id='firstName', placeholder = 'Enter first name')
+					input(name='firstName', type='tekst', id='firstName', placeholder = 'Enter first name')
 			tr
 				td
 					label Last Name: 
 				td
-					input(name='lastName', id='lastName', placeholder = 'Enter last name')
+					input(name='lastName', type='tekst', id='lastName', placeholder = 'Enter last name')
 			tr
 				td
 					label E-mail: 
 				td
-					input(name='email', id='email', placeholder = 'Enter email')
+					input(name='email', type='email', id='email', placeholder = 'Enter email')
 		input(type='Submit', value='Add user')
 
 
