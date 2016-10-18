@@ -19,8 +19,9 @@ app.get ('/index', (request, response) => {
 
 		let parsedData = JSON.parse(data)
 		console.log(parsedData)
+		response.render('index', {data: parsedData})
 	})
-	response.render('index')
+	
 })
 
 app.listen (8000, () => {
