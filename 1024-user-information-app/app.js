@@ -1,9 +1,9 @@
 'use strict' //making sure new terms are readable
 
 //Usefull youtube and webpages
-//https://www.youtube.com/watch?v=leilVbK0xQc
-//http://stackoverflow.com/questions/5710358/how-to-retrieve-post-query-parameters-in-express
-//https://www.youtube.com/watch?v=vKlybue_yMQ
+//https://www.youtube.com/watch?v=leilVbK0xQc --> on adding forms, links
+//http://stackoverflow.com/questions/5710358/how-to-retrieve-post-query-parameters-in-express --> on body parsing
+//https://www.youtube.com/watch?v=vKlybue_yMQ --> on body parsing, doing something with the input of the form
 
 //including necessary modules and setting up of the file
 const express = require ('express')
