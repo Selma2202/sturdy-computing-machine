@@ -1,0 +1,17 @@
+html
+	head
+	body
+		h1 Search form
+		p Here you can search for users by their first or last name.
+		br
+		br
+		form(method='get', action= __dirname + '../data.json')
+		label(for='ourid') Search: 
+		input(name='searchbar', type='tekst', id='searchbar', placeholder='Search by first or last name')
+		input(type='Submit', value='Search')
+
+		//- each thing in data
+		//- 	p #{thing.firstName}
+		//- 	p #{thing.lastName}
+		//- 	p #{thing.email}
+		//- 	br

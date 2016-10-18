@@ -1,0 +1,42 @@
+[
+	{
+		"firstName": "Selma",
+		"lastName": "Dorrestein",
+		"email": "selmadorrestein@gmail.com"
+	},
+	{
+		"firstName": "Anne",
+		"lastName": "Dorrestein",
+		"email": "annedorrestein@gmail.com"
+	},
+	{
+		"firstName": "Elize",
+		"lastName": "Dorrestein",
+		"email": "elizedorrestein@hotmail.com"
+	},
+	{
+		"firstName": "Corine",
+		"lastName": "Dorrestein",
+		"email": "corine_dorrestein@hotmail.com"
+	},
+	{
+		"firstName": "Francien",
+		"lastName": "Dorrestein",
+		"email": "franciendorrestein@hotmail.com"
+	},
+	{
+		"firstName": "José",
+		"lastName": "Dams",
+		"email": "josedams1@gmail.com"
+	},
+	{
+		"firstName": "Auke-Jan",
+		"lastName": "Mulder",
+		"email": "aukejanmulder@gmail.com"
+	},
+	{
+		"firstName": "Jan",
+		"lastName": "Noordman",
+		"email": "j.j.noordman@hotmail.com"
+	}
+]
