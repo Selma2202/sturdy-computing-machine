@@ -6,10 +6,10 @@ const fs = require ('fs')
 const bodyParser = require('body-parser') //al in twee tutorials gezien dat het gebruik wordt, dus gebruiken
 const app = express ()
 
-app.use( bodyParser() );       // to support JSON-encoded bodies
-//app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-//  extended: true
-//})); 
+// app.use( bodyParser() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+ extended: true
+})); 
 
 //app.use(express.json());       // to support JSON-encoded bodies
 //app.use(express.urlencoded()); // to support URL-encoded bodies
@@ -43,17 +43,23 @@ app.get ('/search', (request, response) => {
 //https://www.youtube.com/watch?v=vKlybue_yMQ
 
 app.post('/search', (req, resp) => {
-	resp.end(JSON.stringify(req.body));
+	// resp.end(JSON.stringify(req.body));
 
 	fs.readFile( __dirname + '/data.json', (error, data) => {
 		if (error) throw error
 
+			let resultArray = [];
 			let parsedData = JSON.parse(data)
+			console.log("\nFor this input, I have the following data:")
+			for (var i = 0; i < parsedData.length; i++) {//make sure to use "<" in stead of "<="
+				if(req.body.searchbar == parsedData[i].firstName || req.body.searchbar == parsedData[i].lastName){
+					console.log("First name: " + parsedData[i].firstName)
+					console.log("Last name: " + parsedData[i].lastName)
+					console.log("E-mail: " + parsedData[i].email + "\n")
 
-
-		if(req.body.searchbar == parsedData[0].firstName || req.body.searchbar == parsedData[0].lastName){
-			console.log("I work, because I recognised Selma's name")
+			}
 		}
+		resp.render('returnuser', {data: parsedData})
 	})
     //var firstName = req.body.firstName,
 })
