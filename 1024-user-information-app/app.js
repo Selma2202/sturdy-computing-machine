@@ -25,7 +25,7 @@ app.get ('/allusers', (request, response) => {
 	fs.readFile( __dirname + '/data.json', (error, data) => {
 		if (error) throw error
 
-		let parsedData = JSON.parse(data)
+			let parsedData = JSON.parse(data)
 		console.log(parsedData)
 		response.render('allusers', {data: parsedData})
 	})
@@ -34,7 +34,7 @@ app.get ('/allusers', (request, response) => {
 //route 2: renders a page that displays a form which is your search bar.
 app.get ('/search', (request, response) => {
 	response.render('search')
-	})
+})
 // })
 
 
@@ -42,12 +42,19 @@ app.get ('/search', (request, response) => {
 //http://stackoverflow.com/questions/5710358/how-to-retrieve-post-query-parameters-in-express
 //https://www.youtube.com/watch?v=vKlybue_yMQ
 
-
-
-
 app.post('/search', (req, resp) => {
 	resp.end(JSON.stringify(req.body));
 
+	fs.readFile( __dirname + '/data.json', (error, data) => {
+		if (error) throw error
+
+			let parsedData = JSON.parse(data)
+
+
+		if(req.body.searchbar == parsedData[0].firstName || req.body.searchbar == parsedData[0].lastName){
+			console.log("I work, because I recognised Selma's name")
+		}
+	})
     //var firstName = req.body.firstName,
 })
 //bodyparser iets
@@ -69,7 +76,7 @@ app.post('/search', (req, resp) => {
 // route 4: renders a page with three forms on it (first name, last name, and email) that allows you to add new users to the users.json file.
 app.get ('/adduser', (request, response) => {
 	response.render('adduser')
-	})
+})
 // })
 
 
