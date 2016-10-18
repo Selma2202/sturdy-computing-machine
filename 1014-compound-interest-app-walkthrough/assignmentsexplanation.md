@@ -20,7 +20,7 @@ Steps:
 - I now managed to get it to work for just one customer. Everywhere where it says [0], it might need to happen an x amount of time. 
 - So I need to get that part to loop.  -->
 
-# SUPER MEGA UKULELE
+<!-- # SUPER MEGA UKULELE
 - Make a 'customers' folder with 10 customer json files (e.g. mentor.json, paul.json etc). Make your app read all files in this directory and write the results of the pension calculations to a 'customerprojections.json' file as an array of result objects.
 Hints: read folder, parse files, loop file and call calculations, save result variable to json file.
 
@@ -36,12 +36,12 @@ STEPS:
 	- a variable 'result'
 	- the variable 'result' should be saved in a json file? or exported to a json file?
 NOTE AFTER MAKING THIS ASSIGNMENT
-- the only thing that needed to be different in the end, was to use readdir and parse files, with which google helped. After that, I could just use the complete old code from Assignment1/2 combined. sweet.
+- the only thing that needed to be different in the end, was to use readdir and parse files, with which google helped. After that, I could just use the complete old code from Assignment1/2 combined. sweet. -->
 
 
-<!-- # KING BOB
+# KING BOB
 - Make a generator that populates a process.argv[2] number of customer json files with random but reasonable data (meaning it could be real people you know, no trillionaires). Then use your super mega ukulele app to calculate their hypothetical pensions.
- -->
+
 # Style bonus
 - use arrow functions ()=>{}
 - use not a single var statement
