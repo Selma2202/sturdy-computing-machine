@@ -58,7 +58,7 @@ app.post('/search', (req, resp) => {
 					//console.log("E-mail: " + parsedData[i].email + "\n")
 
 					//when a match occurs, it will retrieve all data for this loopnumber and push it into the empty array.
-					resultArray.push(parsedData[i].firstName, parsedData[i].lastName, parsedData[i].email)
+					resultArray.push(parsedData[i].firstName, parsedData[i].lastName, parsedData[i].email + '\n')
 				}
 			}
 			//console.log (resultArray)
