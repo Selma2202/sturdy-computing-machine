@@ -5,11 +5,13 @@ html
 	body
 		div
 			h1 Add a user
+			a(href="allusers") View all users
+			br
+			a(href="search") Search users
+			br
+			br
+			h3 Adding form
 			p Here you can add a user by filling in the fields.
-			a(href="allusers") Want to see all users instead?
-			br
-			a(href="search") Want to search for a user?
-			br
 			br
 			table
 				form(method='post', action= 'adduser')
@@ -31,7 +33,7 @@ html
 							input(name='email', type='email', id='email', placeholder = 'Enter email')
 					tr
 						td
-							input(type='Submit', value='Add user')
+							input(type='Submit', value='Add user', class='button')
 
 
 //- enkele aanhalingstekens vs dubbele? nog checken

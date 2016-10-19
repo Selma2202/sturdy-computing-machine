@@ -7,12 +7,12 @@ html
 	body
 		div
 			h1 All Users
-			p This is a list of all users
-			a(href="search") Want to search for a user?
+			a(href="search") Search users
 			br
-			a(href="adduser") Want to add a user?
+			a(href="adduser") Add user
 			br
 			br
+			h3 This is a list of all users
 			each thing in data
 				p #{thing.firstName}
 				p #{thing.lastName}
