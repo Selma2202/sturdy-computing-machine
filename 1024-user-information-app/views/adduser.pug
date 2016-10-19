@@ -3,34 +3,35 @@ html
 		title= "UIA ~ Add User"
 		link(rel='stylesheet', href='main.css')
 	body
-		h1 Add a user
-		p Here you can add a user by filling in the fields.
-		a(href="allusers") Want to see all users instead?
-		br
-		a(href="search") Want to search for a user?
-		br
-		br
-		table
-			form(method='post', action= 'adduser')
-				//-input(type='hidden', name='_method', value='PUT')
-				tr
-					td
-						label First Name: 
-					td
-						input(name='firstName', type='tekst', id='firstName', placeholder = 'Enter first name')
-				tr
-					td
-						label Last Name: 
-					td
-						input(name='lastName', type='tekst', id='lastName', placeholder = 'Enter last name')
-				tr
-					td
-						label E-mail: 
-					td
-						input(name='email', type='email', id='email', placeholder = 'Enter email')
-				tr
-					td
-						input(type='Submit', value='Add user')
+		div
+			h1 Add a user
+			p Here you can add a user by filling in the fields.
+			a(href="allusers") Want to see all users instead?
+			br
+			a(href="search") Want to search for a user?
+			br
+			br
+			table
+				form(method='post', action= 'adduser')
+					//-input(type='hidden', name='_method', value='PUT')
+					tr
+						td
+							label First Name: 
+						td
+							input(name='firstName', type='tekst', id='firstName', placeholder = 'Enter first name')
+					tr
+						td
+							label Last Name: 
+						td
+							input(name='lastName', type='tekst', id='lastName', placeholder = 'Enter last name')
+					tr
+						td
+							label E-mail: 
+						td
+							input(name='email', type='email', id='email', placeholder = 'Enter email')
+					tr
+						td
+							input(type='Submit', value='Add user')
 
 
 //- enkele aanhalingstekens vs dubbele? nog checken

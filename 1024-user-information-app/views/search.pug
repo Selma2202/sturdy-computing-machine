@@ -3,16 +3,17 @@ html
 		title= "UIA ~ Search User"
 		link(rel='stylesheet', href='main.css')
 	body
-		h1 Search form
-		p Here you can search for users by their first or last name.
-		p For example: try 'Dorrestein' for multiple results, try 'Noordman' or 'Selma' for just one.
-		a(href="allusers") Want to see all users instead?
-		br
-		a(href="adduser") Want to add a user?
-		br
-		br
-		form(method='post', action= 'search')
-			//-input(type='hidden', name='_method', value='PUT')
-			label(for='ourid') Search: 
-			input(name='searchbar', type='tekst', id='searchbar', placeholder='Search by first or last name')
-			input(type='Submit', value='Search')
+		div
+			h1 Search form
+			p Here you can search for users by their first or last name.
+			p For example: try 'Dorrestein' for multiple results, try 'Noordman' or 'Selma' for just one.
+			a(href="allusers") Want to see all users instead?
+			br
+			a(href="adduser") Want to add a user?
+			br
+			br
+			form(method='post', action= 'search')
+				//-input(type='hidden', name='_method', value='PUT')
+				label(for='ourid') Search: 
+				input(name='searchbar', type='tekst', id='searchbar', placeholder='Search by first or last name')
+				input(type='Submit', value='Search')

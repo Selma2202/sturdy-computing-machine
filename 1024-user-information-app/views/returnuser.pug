@@ -3,19 +3,20 @@ html
 		title= "UIA ~ Search Results"
 		link(rel='stylesheet', href='main.css')
 	body
-		h1 Search results
-		p Your search returned the following results:
-		br
-		br
-		each thing in data
-			p #{thing} 
-		br
-		br
-		a(href="search") Return to search
-		br
-		a(href="allusers") Return to all users
-		br
-		a(href="adduser") Add a user
+		div
+			h1 Search results
+			p Your search returned the following results:
+			br
+			br
+			each thing in data
+				p #{thing} 
+			br
+			br
+			a(href="search") Return to search
+			br
+			a(href="allusers") Return to all users
+			br
+			a(href="adduser") Add a user
 
 //- html
 //- 	head

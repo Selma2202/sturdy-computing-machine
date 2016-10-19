@@ -5,15 +5,16 @@ html
 		//- link(rel='stylesheet', href=__dirname+'static/main.css')
 		link(rel='stylesheet', href='main.css')
 	body
-		h1 All Users
-		p This is a list of all users
-		a(href="search") Want to search for a user?
-		br
-		a(href="adduser") Want to add a user?
-		br
-		br
-		each thing in data
-			p #{thing.firstName}
-			p #{thing.lastName}
-			p #{thing.email}
+		div
+			h1 All Users
+			p This is a list of all users
+			a(href="search") Want to search for a user?
 			br
+			a(href="adduser") Want to add a user?
+			br
+			br
+			each thing in data
+				p #{thing.firstName}
+				p #{thing.lastName}
+				p #{thing.email}
+				br

@@ -1,7 +1,30 @@
 h1 {
-	color: red;
+	color: #4d2500;
 }
 
 p {
-	color: blue;
+	color: #994a00;
+}
+
+a {
+	color: #994a00;
+}
+
+
+body {
+	background-image: url(background.jpg);
+	/*background-image: url(background2.gif);*/
+}
+
+div {
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
+	padding: 30px;
+	border: solid 3px #ffcc99;
+	border-radius: 45px;
+	display: table;
+	background-color: #fff2e6;
+	font-family:Lucida Sans Unicode;
 }
