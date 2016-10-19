@@ -38,5 +38,40 @@
 		"firstName": "Jan",
 		"lastName": "Noordman",
 		"email": "j.j.noordman@hotmail.com"
+	},
+	{
+		"firstName": "Elia",
+		"lastName": "Beks",
+		"email": "eliabeks@gmail.com"
+	},
+	{
+		"firstName": "Lonneke",
+		"lastName": "Ram",
+		"email": "lonnekeram@gmail.com"
+	},
+	{
+		"firstName": "Anke",
+		"lastName": "te Boekhorst",
+		"email": "anketeboekhorst@hotmail.com"
+	},
+	{
+		"firstName": "Ina",
+		"lastName": "Meijer",
+		"email": "inameijer@chello.nl"
+	},
+	{
+		"firstName": "Frans",
+		"lastName": "Dorrestein",
+		"email": "fransdorrestein@philips.com"
+	},
+	{
+		"firstName": "Tessa",
+		"lastName": "Verboven",
+		"email": "tessaverboven@msn.com"
+	},
+	{
+		"firstName": "Sebastiaan",
+		"lastName": "van Luik",
+		"email": "sebastiaanvanluik@gmail.com"
 	}
 ]

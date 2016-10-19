@@ -3,27 +3,30 @@ html
 	body
 		h1 Add a user
 		p Here you can add a user by filling in the fields.
+		a(href="allusers") Want to see all users instead?
+		br
+		a(href="search") Want to search for a user?
 		br
 		br
 		table
-			form(method='POST', action= __dirname + '../data.json')
-				input(type='hidden', name='_method', value='PUT')
-			tr
-				td
-					label First Name: 
-				td
-					input(name='firstName', type='tekst', id='firstName', placeholder = 'Enter first name')
-			tr
-				td
-					label Last Name: 
-				td
-					input(name='lastName', type='tekst', id='lastName', placeholder = 'Enter last name')
-			tr
-				td
-					label E-mail: 
-				td
-					input(name='email', type='email', id='email', placeholder = 'Enter email')
-		input(type='Submit', value='Add user')
+			form(method='post', action= 'adduser')
+				//-input(type='hidden', name='_method', value='PUT')
+				tr
+					td
+						label First Name: 
+					td
+						input(name='firstName', type='tekst', id='firstName', placeholder = 'Enter first name')
+				tr
+					td
+						label Last Name: 
+					td
+						input(name='lastName', type='tekst', id='lastName', placeholder = 'Enter last name')
+				tr
+					td
+						label E-mail: 
+					td
+						input(name='email', type='email', id='email', placeholder = 'Enter email')
+				input(type='Submit', value='Add user')
 
 
 //- enkele aanhalingstekens vs dubbele? nog checken

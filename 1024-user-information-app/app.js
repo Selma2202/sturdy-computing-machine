@@ -4,6 +4,7 @@
 //https://www.youtube.com/watch?v=leilVbK0xQc --> on adding forms, links
 //http://stackoverflow.com/questions/5710358/how-to-retrieve-post-query-parameters-in-express --> on body parsing
 //https://www.youtube.com/watch?v=vKlybue_yMQ --> on body parsing, doing something with the input of the form
+//http://stackoverflow.com/questions/18884840/adding-a-new-array-element-to-a-json-object --> on why to parse a file before being able to edit it.
 
 //including necessary modules and setting up of the file
 const express = require ('express')
@@ -23,7 +24,7 @@ app.get ('/allusers', (request, response) => {
 	fs.readFile( __dirname + '/data.json', (error, data) => {
 		if (error) throw error
 
-		let parsedData = JSON.parse(data)
+			let parsedData = JSON.parse(data)
 		console.log('\nAll users will now be displayed in the browser')//informative for terminal-readers
 		response.render('allusers', {data: parsedData})//sends the parsedData to the webpage of allusers
 	})
@@ -47,11 +48,11 @@ app.post('/search', (req, resp) => {
 		if (error) throw error
 
 			let resultArray = [];//empty array to fill with search results later on, so it can be used by returnuser-file to display results in the browser
-			
-			let parsedData = JSON.parse(data)
+
+		let parsedData = JSON.parse(data)
 			console.log("\nSearch results will now be displayed in the browser")//informative for terminal readers.
 			for (let i = 0; i < parsedData.length; i++) {//loops through all objects
-				if(req.body.searchbar == parsedData[i].firstName || req.body.searchbar == parsedData[i].lastName){//will only look for when input matches first- OR last-name
+				if(req.body.searchbar.toLowerCase() == parsedData[i].firstName.toLowerCase() || req.body.searchbar.toLowerCase() == parsedData[i].lastName.toLowerCase()){//will only look for when input matches first- OR last-name
 
 					//console.log("First name: " + parsedData[i].firstName)
 					//console.log("Last name: " + parsedData[i].lastName)
@@ -59,7 +60,9 @@ app.post('/search', (req, resp) => {
 
 					//when a match occurs, it will retrieve all data for this loopnumber and push it into the empty array.
 					resultArray.push(parsedData[i].firstName, parsedData[i].lastName, parsedData[i].email + '\n')
-				}
+				} //else {
+					//resultArray.push("No users in our database match your search")
+				//}
 			}
 			//console.log (resultArray)
 			resp.render('returnuser', {data: resultArray})
@@ -69,16 +72,49 @@ app.post('/search', (req, resp) => {
 // route 4: renders a page with three forms on it (first name, last name, and email) that allows you to add new users to the users.json file.
 app.get ('/adduser', (request, response) => {
 	response.render('adduser')
+	
 })
-// })
+
 
 
 // route 5: takes in the post request from the 'create user' form, then adds the user to the users.json file. Once that is complete, redirects to the route that displays all your users (from part 0).
+
+app.post ('/adduser', (req, resp) => {
+	//console.log('debugging 1')
+
+	fs.readFile( __dirname + '/data.json', 'utf8', (error, data) => {
+		if (error) throw error
+
+			console.log(data)
+			let parsedData = JSON.parse(data)//parse data so there can be objects added to the data--> WACHT misschien juist niet parsen, zodat het in een array blijft en je ernaar kunt pushen. --> toch wel parsen: JSON is namelijk alleen de notatie, om wijzigingen aan te kunnen brengen moet je hem tot een javascript file parsen, en daarna weer stringifyen
+			//http://stackoverflow.com/questions/18884840/adding-a-new-array-element-to-a-json-object
+			console.log(parsedData)
+
+			parsedData.push({"firstName": req.body.firstName, "lastName": req.body.lastName, "email": req.body.email})
+
+			console.log(parsedData) //YES OMG HET NIEUWE OBJECT KOMT ERIN TE STAAN
+
+			//JSON.stringify(parsedData, null, '\t')
+
+			fs.writeFile(__dirname + '/data.json', JSON.stringify(parsedData, null, '\t'), (err) => {
+				if (err) throw err;
+				console.log('It\'s saved!');
+			});
+			
+			//let newParsedData = JSON.parse(data)//dit moet andere data worden
+
+			resp.render('allusers', {data: parsedData})
+		})
+})
+
 
 
 app.listen (8000, () => {
 	console.log('We are listening on port 8000')
 })
+
+
+
 
 
 // Old example code
@@ -94,3 +130,17 @@ app.listen (8000, () => {
 // app.use( bodyParser() );       // to support JSON-encoded bodies
 //app.use(express.json());       // to support JSON-encoded bodies
 //app.use(express.urlencoded()); // to support URL-encoded bodies
+
+//When in route 5, i wanted to push to the 'array' of json:
+//data.push({"firstName": req.body.firstName, "lastName": req.body.lastName, "email": req.body.email})
+
+//When in route 5, i wanted to create a new object to push as a whole:
+// let newUser = 
+			// {"firstName": "",
+			// "lastName": "",
+			// "email": ""} //object al ingevuld maar met lege values om in te kunnen pushen? Maar dan zit je met een naam-object, en de rest van de objecten zijn naamloos.
+			// 	console.log(newUser)
+			// newUser.firstName=req.body.firstName // moet naar object newUser
+			// newUser.lastName=req.body.lastName //moet naar object newUser
+			// newUser.email=req.body.email // moet naar object newUser
+			// console.log(newUser)
