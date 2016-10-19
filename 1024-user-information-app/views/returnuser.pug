@@ -1,3 +1,25 @@
+//- html
+//- 	head
+//- 		title= "UIA ~ Search Results"
+//- 		link(rel='stylesheet', href='main.css')
+//- 	body
+//- 		div
+//- 			h1 Search results
+//- 			a(href="allusers") View all users
+//- 			br
+//- 			a(href="search") Search users
+//- 			br
+//- 			a(href="adduser") Add user
+//- 			br
+//- 			br
+//- 			h3 This is a list of all users
+//- 			p Your search returned the following results:
+//- 			br
+//- 			each thing in data
+//- 				p #{thing} 
+//- 			br
+//- 			br
+
 html
 	head
 		title= "UIA ~ Search Results"
@@ -10,41 +32,13 @@ html
 			a(href="search") Search users
 			br
 			a(href="adduser") Add user
-			br
-			br
-			h3 This is a list of all users
-			p Your search returned the following results:
-			br
-			each thing in data
-				p #{thing} 
-			br
-			br
 
-//- html
-//- 	head
-//- 	body
-//- 		h1 Search results
-
-//- 		-var searc
-
-//- 		if data == true
-//- 			p Your search returned the following results:
-//- 			br
-//- 			br
-//- 			each thing in data
-//- 				p #{thing} 
-//- 			br
-//- 			a(href="search") Return to search
-//- 			br
-//- 			a(href="allusers") Return to all users
-//- 			br
-//- 			a(href="adduser") Add a user
-//- 		else 
-//- 			p Your search returned no results
-//- 			br
-//- 			br
-//- 			a(href="search") Return to search
-//- 			br
-//- 			a(href="allusers") Return to all users
-//- 			br
-//- 			a(href="adduser") Add a user
+			if data.length == 0
+				h3 Your search returned no results. 
+				p Please try again.
+				br
+			else 
+				h3 Your search returned the following results:
+				each thing in data
+					p #{thing} 
+				br

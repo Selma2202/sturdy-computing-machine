@@ -49,11 +49,8 @@ app.post('/search', (req, resp) => {
 				if(req.body.searchbar.toLowerCase() == parsedData[i].firstName.toLowerCase() || req.body.searchbar.toLowerCase() == parsedData[i].lastName.toLowerCase()){//will only look for when input matches first- OR last-name
 
 					//when a match occurs, it will retrieve all data for this loopnumber and push it into the empty array.
-					resultArray.push('~~~~~~~~~~', 'User ' + i, parsedData[i].firstName, parsedData[i].lastName, parsedData[i].email + '\n' + '\n')
-				// } else {
-				// 	resultArray.push("No users in our database match your search")
-				// }
-			}
+					resultArray.push('User ' + (i+1) + ':', 'First name: ' + parsedData[i].firstName, 'Last name: ' + parsedData[i].lastName, 'E-mail: ' + parsedData[i].email, '~~~~~~~~~~')
+				}
 			}
 			//console.log (resultArray)
 			resp.render('returnuser', {data: resultArray})
@@ -86,7 +83,7 @@ app.post ('/adduser', (req, resp) => {
 				console.log('It\'s saved!');//informative for terminal readers
 			});
 
-			resp.render('allusers', {data: parsedData})//it does not first have to parse the new written data again, since only one item was added.
+			resp.redirect('allusers')//it does not first have to parse the new written data again, since only one item was added.
 		})
 })
 
