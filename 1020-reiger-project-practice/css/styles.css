@@ -17,13 +17,14 @@
     position: absolute;
     top: 0px;
     left: 0px;
-    color: transparent;
-    background-size: cover;
+    color: transparent; /*We do not want to see the text*/
+    background-size: cover; /*Will make sure to cover all the area of the element/size of the screen*/
     background-position: 50% 50%;
     background-repeat: none;
-    opacity: 0;
+    opacity: 0; /*To be changed in the animation*/
     z-index: 0;
 	-webkit-backface-visibility: hidden;
+    /*ADAPT WHEN ADDING IMG*/
     -webkit-animation: imageAnimation 36s linear infinite 0s;
     -moz-animation: imageAnimation 36s linear infinite 0s;
     -o-animation: imageAnimation 36s linear infinite 0s;
@@ -39,6 +40,7 @@
     text-align: center;
     opacity: 0;
     color: #fff;
+    /*ADAPT WHEN ADDING IMG*/
     -webkit-animation: titleAnimation 36s linear infinite 0s;
     -moz-animation: titleAnimation 36s linear infinite 0s;
     -o-animation: titleAnimation 36s linear infinite 0s;
@@ -51,11 +53,20 @@
     padding: 0;
     line-height: 200px; 
 }
+
+h4 {
+    font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+    font-size: 120px;
+    padding: 0;
+    text-align: left;
+    /*line-height: 200px; */
+}
+
 .cb-slideshow li:nth-child(1) span { 
-    background-image: url(../images/1.jpg) 
+    background-image: url(../images/placeholder1.jpg) 
 }
 .cb-slideshow li:nth-child(2) span { 
-    background-image: url(../images/2.jpg);
+    background-image: url(../images/placeholder2.jpg);
     -webkit-animation-delay: 6s;
     -moz-animation-delay: 6s;
     -o-animation-delay: 6s;
@@ -63,7 +74,7 @@
     animation-delay: 6s; 
 }
 .cb-slideshow li:nth-child(3) span { 
-    background-image: url(../images/3.jpg);
+    background-image: url(../images/placeholder3.jpg);
     -webkit-animation-delay: 12s;
     -moz-animation-delay: 12s;
     -o-animation-delay: 12s;
@@ -71,7 +82,7 @@
     animation-delay: 12s; 
 }
 .cb-slideshow li:nth-child(4) span { 
-    background-image: url(../images/4.jpg);
+    background-image: url(../images/placeholder4.jpg);
     -webkit-animation-delay: 18s;
     -moz-animation-delay: 18s;
     -o-animation-delay: 18s;
@@ -79,7 +90,7 @@
     animation-delay: 18s; 
 }
 .cb-slideshow li:nth-child(5) span { 
-    background-image: url(../images/5.jpg);
+    background-image: url(../images/placeholder5.jpg);
     -webkit-animation-delay: 24s;
     -moz-animation-delay: 24s;
     -o-animation-delay: 24s;
@@ -87,13 +98,16 @@
     animation-delay: 24s; 
 }
 .cb-slideshow li:nth-child(6) span { 
-    background-image: url(../images/6.jpg);
+    background-image: url(../images/placeholder6.jpg);
     -webkit-animation-delay: 30s;
     -moz-animation-delay: 30s;
     -o-animation-delay: 30s;
     -ms-animation-delay: 30s;
     animation-delay: 30s; 
 }
+
+/*ADAPT WHEN ADDING IMG: NTH-CHILD-NO, SECONDSMARK*/
+
 .cb-slideshow li:nth-child(2) div { 
     -webkit-animation-delay: 6s;
     -moz-animation-delay: 6s;
@@ -129,7 +143,14 @@
     -ms-animation-delay: 30s;
     animation-delay: 30s; 
 }
+
+/*ADAPT WHEN ADDING IMG: NTH-CHILD-NO, SECONDSMARK*/
+
 /* Animation for the slideshow images */
+/*Now, why those values? We want each image to be visible for 6 seconds and we know that at the end of a cycle, we want the first image to show again. We have 6 images, so we will need 36 seconds for a whole cycle to finish. Now, we need to “time” the opacity values accordingly. Knowing that our second image will start animating at 6 seconds, we need to know at what percentile of the animation this will require the first image to fade out. Dividing 6 by 36 gives us 0.166… which would be 16% for our keyframe step. Now, because we don’t want our image to just fade all the time, we’ll define an inbetween step, which we’ll set at half of what we calculated, i.e. 8%. That’s the point that we want to show the image completely and we only want to start fading it out at 17%, making it disappear completely at 25%.*/
+
+/*i THINK the percentages don't need adaption, since the total amount of time will change as well. To be tested.*/
+
 @-webkit-keyframes imageAnimation { 
     0% { opacity: 0;
     -webkit-animation-timing-function: ease-in; }
@@ -176,6 +197,7 @@
     100% { opacity: 0 }
 }
 /* Animation for the title */
+/*same reasoning for the title, just that we want it to disappear a bit quicker, hence the opacity 0 at 19%:*/
 @-webkit-keyframes titleAnimation { 
     0% { opacity: 0 }
     8% { opacity: 1 }
@@ -216,6 +238,7 @@
 	opacity: 1;
 }
 
+/*Make it device friendly*/
 @media screen and (max-width: 1140px) { 
     .cb-slideshow li div h3 { font-size: 140px }
 }
