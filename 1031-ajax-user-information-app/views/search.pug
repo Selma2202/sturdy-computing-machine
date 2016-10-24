@@ -13,8 +13,13 @@ html
 			h3 Search form
 			p Here you can search for users by their first or last name.
 			p For example: try 'Dorrestein' for multiple results, try 'Noordman' or 'Selma' for just one.
-			form(method='post', action= 'search')
+			//- form(method='post', action= 'search')
 				//-input(type='hidden', name='_method', value='PUT')
-				label(for='ourid') Search: 
-				input(name='searchbar', type='search', id='searchbar', placeholder='Search by first or last name')
-				input(type='Submit', value='Search', class='button', id='searchbutton')
+			label(for='ourid') Search: 
+			input(name='searchbar', type='search', id='searchbar', placeholder='Search by first or last name')
+			//- input(type='Submit', value='Search', class='button', id='searchbutton')
+			//- div(id='underInput')
+
+		script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js')
+		script(type='text/javascript', src='main.css')
+
