@@ -14,8 +14,11 @@
   "author": "Selma",
   "license": "MIT",
   "dependencies": {
+    "autocomplete": "0.0.1",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "pug": "^2.0.0-beta6"
+    "jquery": "^3.1.1",
+    "pug": "^2.0.0-beta6",
+    "underscore": "^1.8.3"
   }
 }
