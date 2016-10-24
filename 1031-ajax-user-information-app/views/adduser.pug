@@ -1,0 +1,39 @@
+html
+	head
+		title= "UIA ~ Add User"
+		link(rel='stylesheet', href='main.css')
+	body
+		div
+			h1 Add a user
+			a(href="allusers") View all users
+			br
+			a(href="search") Search users
+			br
+			br
+			h3 Adding form
+			p Here you can add a user by filling in the fields.
+			br
+			table
+				form(method='post', action= 'adduser')
+					//-input(type='hidden', name='_method', value='PUT')
+					tr
+						td
+							label First Name: 
+						td
+							input(name='firstName', type='tekst', id='firstName', placeholder = 'Enter first name' required)
+					tr
+						td
+							label Last Name: 
+						td
+							input(name='lastName', type='tekst', id='lastName', placeholder = 'Enter last name' required)
+					tr
+						td
+							label E-mail: 
+						td
+							input(name='email', type='email', id='email', placeholder = 'Enter email' required)
+					tr
+						td
+							input(type='Submit', value='Add user', class='button')
+
+
+//- enkele aanhalingstekens vs dubbele? nog checken
