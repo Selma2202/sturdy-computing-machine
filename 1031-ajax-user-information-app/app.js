@@ -87,6 +87,61 @@ app.post ('/adduser', (req, resp) => {
 		})
 })
 
+
+//AJAX OPDRACHTTTTT
+
+app.post('/ajax1', (req, res)=>{
+
+	var inputLetter = req.body.userInput
+
+	// console.log("in the backend, i console: " + inputLetter)
+	res.send(inputLetter)
+
+	fs.readFile( __dirname + '/data.json', (error, data) => {
+		if (error) throw error
+
+			let resultArray = [];//empty array to fill with results matching the inputted letter, to return and display results in the browser.
+
+		//DIT WERKT console.log(resultArray + "aaaaaa")
+
+		let parsedData = JSON.parse(data)
+		//DITWERKTconsole.log(JSON.stringify(parsedData[1]) + '111111')
+
+	// - het checken van de letters (nu nog letter enkelvoud) kan gedaan worden met een for loop, zoals in part 0 van de oefening
+	// --> er moet een loop komen om systematisch en genummerd door de objecten te gaan (for loop)
+	// --> voor elk objectnummer moet vervolgens gecheckt worden op de letter in de firstname (i.firstname) OF (||) in de lastname (i.lastname) voorkomt (for each in)
+	// - elk resultaat (object) dat overeenkomt, moet in een leeg array gepusht worden. er moet dus een leeg array zijn.
+	for (var i = 0; i < parsedData.length; i++) {
+		
+
+		if ((parsedData[i].firstName.indexOf(inputLetter) !== -1)  
+			|| (parsedData[i].lastName.indexOf(inputLetter) !== -1)) {
+			//WANT: parsedData(alle objecten).i(nummervanhetobject).indexOf(inputletter)(checkt of de letter er in zit). Zo nee: dan is het -1. Als het antwoord dus NIET -1 is (en het maakt niet echt uit welk nummer het dan wel is), dan komt de letter er blijkbaar in voor, en mag het object i in de parsed data gepusht worden:
+			//DIT WERKT MOMENTEEL VOOR 1 LETTER. maar dat klopt, want dan moet ie teruggestuurd worden natuurlijk, en dan pas is er ruimte voor nieuwe input.
+			resultArray.push(JSON.stringify(parsedData[i]))
+		}
+
+			//DIT WERKTconsole.log(JSON.stringify(parsedData[i]) + '222222')
+			//dit werktconsole.log(resultArray + 'bbbbbb')
+		}
+		console.log(resultArray + 'ccccccc')
+	
+	//res.send(resultArray)
+})
+})
+
+
+
+//de req die het inneemt: wat op de dataplek van script.js staat (na path)
+//res is wat het terugstuurt naar hetzelfde path in script.js
+
+
+
+
+
+
+
+
 //what localhost can this app be found
 app.listen (8000, () => {
 	console.log('We are listening on port 8000')
