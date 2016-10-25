@@ -1,0 +1,12 @@
+in backend: get request, basis:
+
+$.get("url", function(data, status) {
+	//process data
+	// the response will contain data that is present in the html
+})
+
+
+$.post ("url", data, function(data, status){
+	//process data
+	//data as an object
+})
