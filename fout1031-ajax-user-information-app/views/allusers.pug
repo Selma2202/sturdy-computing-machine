@@ -1,0 +1,20 @@
+html
+	head
+		title= "UIA ~ All Users"
+		//- link(rel='stylesheet', href='/static/main.css')
+		//- link(rel='stylesheet', href=__dirname+'static/main.css')
+		link(rel='stylesheet', href='main.css')
+	body
+		div
+			h1 All Users
+			a(href="search") Search users
+			br
+			a(href="adduser") Add user
+			br
+			br
+			h3 This is a list of all users
+			each thing in data
+				p #{thing.firstName}
+				p #{thing.lastName}
+				p #{thing.email}
+				br

@@ -1,0 +1,27 @@
+html
+	head
+		title= "UIA ~ Search User"
+		link(rel='stylesheet', href='main.css')
+	body
+		div
+			h1 Search users
+			a(href="allusers") All users
+			br
+			a(href="adduser") Add user
+			br
+			br
+			h3 Search form
+			p Here you can search for users by their first or last name.
+			p For example: try 'Dorrestein' for multiple results, try 'Noordman' or 'Selma' for just one.
+			//- form(method='post', action= 'search')
+				//-input(type='hidden', name='_method', value='PUT')
+			label(for='ourid') Search: 
+			input(name='searchbar', type='text', id='searchbar', placeholder='Search by first or last name')
+			input(type='Submit', value='Search', class='button', id='searchbutton')
+			//- div(id='underInput')
+			//- changed type from 'search' to 'text' just in case that matters
+
+		//- script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js')
+		//- script(type='text/javascript', src='main.css')
+		script(src="https://code.jquery.com/jquery-1.12.4.js")
+		script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
