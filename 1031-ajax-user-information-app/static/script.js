@@ -2,9 +2,24 @@ $(document).ready(function(){
 
 	$('#searchForm').keyup(function(){
 		$.post('/ajax1', {userInput: $('input#searchbar').val()}, function(data, status){
-			var dataFromApp = data
-			console.log (data)
-			// console.log("in the frontend, i console: " + dataFromApp)
+
+			// console.log (data)
+			// console.log( "hallo")
+			// console.log(status)
+
+			if (status == 'success') {
+				console.log (data)
+				//Loops through the object, returns the values
+				
+			let htmlArray = []
+				
+			for (var i = 0; i < data.length; i++) {
+				htmlArray.push(data[i].firstName + " " + data[i].lastName)
+				};
+
+				$( "#resultsHere" ).text( htmlArray );
+				
+			}
 
 			// if (status == 'success') {
 			// 	console.log('Éverything ok!')
