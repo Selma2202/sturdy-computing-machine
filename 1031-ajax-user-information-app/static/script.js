@@ -1,7 +1,11 @@
 $(document).ready(function(){
 
+			console.log(Date.now())
+
 	$('#searchForm').keyup(function(){
 		$.post('/ajax1', {userInput: $('input#searchbar').val()}, function(data, status){
+
+
 
 			$(resultsHere).empty()
 			$(dropdown).empty()
@@ -29,6 +33,13 @@ $(document).ready(function(){
 		})
 	})
 })
+
+
+// var timeNowInMs = Date.now();
+// var time300MsLater = timeNowInMs + 300;
+// if Date.now() > time300MsLater
+
+ 
 
 
 //de data die het inneemt: de jquery versie van wat er in de zoekbar getypt wordt
