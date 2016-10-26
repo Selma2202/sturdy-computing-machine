@@ -3,28 +3,29 @@ $(document).ready(function(){
 	$('#searchForm').keyup(function(){
 		$.post('/ajax1', {userInput: $('input#searchbar').val()}, function(data, status){
 
-			// console.log (data)
-			// console.log( "hallo")
-			// console.log(status)
-
+			$(resultsHere).empty()
+			$(dropdown).empty()
 			if (status == 'success') {
-				console.log (data)
-				//Loops through the object, returns the values
+				//console.log (data)
 				
-			let htmlArray = []
+				// let htmlArray = []
 				
-			for (var i = 0; i < data.length; i++) {
-				htmlArray.push(data[i].firstName + " " + data[i].lastName)
+				for (var i = 0; i < data.length; i++) {
+					$( "#resultsHere" ).append( data[i].firstName + " " + data[i].lastName + ": " + data[i].email + "<br>"  );
+
+					// htmlArray.push(data[i].firstName + " " + data[i].lastName + ": " + data[i].email + "<br>" )
 				};
 
-				$( "#dropdown" ).text( htmlArray );
+				for (var i = 0; i < data.length; i++) {
+					$( "#dropdown" ).append( '<option>' + data[i].firstName + " " + data[i].lastName + ": " + data[i].email); 
+
+					// htmlArray.push(data[i].firstName + " " + data[i].lastName + ": " + data[i].email + "<br>" )
+				};
+
+				// $( "#resultsHere" ).text( htmlArray );
 				
 			}
 
-			// if (status == 'success') {
-			// 	console.log('Éverything ok!')
-			// 	console.log('Server says: ' + data)
-			// }
 		})
 	})
 })

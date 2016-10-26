@@ -98,5 +98,15 @@
 		"firstName": "Jimmy",
 		"lastName": "Voskuil",
 		"email": "jimmyvoskuil@msn.com"
+	},
+	{
+		"firstName": "Lala",
+		"lastName": "Popo",
+		"email": "lala@popo.com"
+	},
+	{
+		"firstName": "Paul",
+		"lastName": "van Motman",
+		"email": "paulvanmotman@gmail.com"
 	}
 ]
