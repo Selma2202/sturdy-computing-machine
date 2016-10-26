@@ -17,7 +17,7 @@ $(document).ready(function(){
 				htmlArray.push(data[i].firstName + " " + data[i].lastName)
 				};
 
-				$( "#resultsHere" ).text( htmlArray );
+				$( "#dropdown" ).text( htmlArray );
 				
 			}
 
