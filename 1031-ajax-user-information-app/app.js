@@ -46,7 +46,10 @@ app.post('/search', (req, resp) => {
 		let parsedData = JSON.parse(data)
 			console.log("\nSearch results will now be displayed in the browser")//informative for terminal readers.
 			for (let i = 0; i < parsedData.length; i++) {//loops through all objects
-				if(req.body.searchbar.toLowerCase() == parsedData[i].firstName.toLowerCase() || req.body.searchbar.toLowerCase() == parsedData[i].lastName.toLowerCase()){//will only look for when input matches first- OR last-name
+				if(req.body.searchbar.toLowerCase() == parsedData[i].firstName.toLowerCase() 
+				|| req.body.searchbar.toLowerCase() == parsedData[i].lastName.toLowerCase() 
+				|| req.body.searchbar.toLowerCase() == parsedData[i].firstName.toLowerCase() + " " + parsedData[i].lastName.toLowerCase() + ": " + parsedData[i].email.toLowerCase()
+				|| req.body.searchbar.toLowerCase() == parsedData[i].firstName.toLowerCase() + ' ' + parsedData[i].lastName.toLowerCase()){//will only look for when input matches first- OR last-name
 
 					//when a match occurs, it will retrieve all data for this loopnumber and push it into the empty array.
 					resultArray.push('User ' + (i+1) + ':', 'First name: ' + parsedData[i].firstName, 'Last name: ' + parsedData[i].lastName, 'E-mail: ' + parsedData[i].email, '~~~~~~~~~~')

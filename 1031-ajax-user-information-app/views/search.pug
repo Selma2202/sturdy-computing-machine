@@ -13,9 +13,8 @@ html
 			br
 			br
 			h3 Search form
-			p Here you can search for users by (part of) their first or last name, to get the result 
+			p Here you can search for users by their first or last name.
 			p For example: try 'Dorrestein' for multiple results, try 'Noordman' or 'Selma' for just one.
-			p Just in case you wish to use the e-mailadres, the results will also show below the search bar, so you can easily copy-paste.
 
 			//- form(method='post', action= 'search' id='searchForm')
 			//- 	label(for='ourid') Search: 
@@ -29,10 +28,11 @@ html
 
 			form(method='post', action= 'search' id='searchForm')
 				//-input(type='hidden', name='_method', value='PUT')
-				//- label(for='ourid') Search: 
-				input(name='searchbar', type='search', id='searchbar', placeholder='Search by first or last name', list='dropdown', autocomplete='off')
+				label(for='ourid') Search: 
+				input(name='searchbar', type='search', id='searchbar', placeholder='Search by first or last name', list='dropdown', autcomplete='off')
 				datalist#dropdown
 
+				input(type='Submit', value='Search', class='button', id='searchbutton')
 			//- if htmlArray.length > 0
 			h3 Users matching your search:
 			p#resultsHere
