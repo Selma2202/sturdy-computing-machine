@@ -1,45 +1,128 @@
-$(document).ready(function(){
+$(document).ready(function(){	
 
-			console.log(Date.now())
+		var lasttime = Date.now() - 300
 
 	$('#searchForm').keyup(function(){
-		$.post('/ajax1', {userInput: $('input#searchbar').val()}, function(data, status){
+
+		console.log(Date.now())
+
+
+		if (Date.now() - lasttime >= 300) {
+			postFunctie()
+			lasttime = Date.now()
+			console.log(lasttime + "aaaaa")
+		}
 
 
 
-			$(resultsHere).empty()
-			$(dropdown).empty()
-			if (status == 'success') {
-				//console.log (data)
-				
-				// let htmlArray = []
-				
-				for (var i = 0; i < data.length; i++) {
-					$( "#resultsHere" ).append( data[i].firstName + " " + data[i].lastName + ": " + data[i].email + "<br>"  );
+		function postFunctie (){
+			$.post('/ajax1', {userInput: $('input#searchbar').val()}, function(data, status){
 
-					// htmlArray.push(data[i].firstName + " " + data[i].lastName + ": " + data[i].email + "<br>" )
-				};
+				$(resultsHere).empty()
+				$(dropdown).empty()
+				if (status == 'success') {					
 
-				for (var i = 0; i < data.length; i++) {
-					$( "#dropdown" ).append( '<option>' + data[i].firstName + " " + data[i].lastName + ": " + data[i].email); 
+					for (var i = 0; i < data.length; i++) {
+						$( "#resultsHere" ).append( data[i].firstName + " " + data[i].lastName + ": " + data[i].email + "<br>"  );
+					};
 
-					// htmlArray.push(data[i].firstName + " " + data[i].lastName + ": " + data[i].email + "<br>" )
-				};
-
-				// $( "#resultsHere" ).text( htmlArray );
-				
-			}
-
-		})
+					for (var i = 0; i < data.length; i++) {
+						$( "#dropdown" ).append( '<option>' + data[i].firstName + " " + data[i].lastName + ": " + data[i].email); 
+					}
+				}		
+			})
+		}
 	})
 })
 
+	// }
 
-// var timeNowInMs = Date.now();
-// var time300MsLater = timeNowInMs + 300;
-// if Date.now() > time300MsLater
 
- 
+
+
+// function canirun () {
+// 	Boolean(Date.now > iRan + 299)
+// }
+
+// if (canirun()) {
+// 	dostuff
+// }
+
+
+
+// - Use date.now
+// - Store the date.now in a variable (var startTime), so the time doesn’t change in between: that is the starting time
+// - So the function should not start executing until it is startTime + 300  (if?)
+// - om dit elke 300ms te laten gebeuren, kun je het misschien in een for-loop stoppen. 
+// - ook nog iets met true/false
+
+
+
+
+
+
+
+
+
+
+//Basisdoc pre timeassignment. works.
+// $(document).ready(function(){
+
+// 	$('#searchForm').keyup(function(){
+// 		$.post('/ajax1', {userInput: $('input#searchbar').val()}, function(data, status){
+
+// 			$(resultsHere).empty()
+// 			$(dropdown).empty()
+// 			if (status == 'success') {
+// 				//console.log (data)
+
+// 				// let htmlArray = []
+
+// 				for (var i = 0; i < data.length; i++) {
+// 					$( "#resultsHere" ).append( data[i].firstName + " " + data[i].lastName + ": " + data[i].email + "<br>"  );
+
+// 					// htmlArray.push(data[i].firstName + " " + data[i].lastName + ": " + data[i].email + "<br>" )
+// 				};
+
+// 				for (var i = 0; i < data.length; i++) {
+// 					$( "#dropdown" ).append( '<option>' + data[i].firstName + " " + data[i].lastName + ": " + data[i].email); 
+
+// 					// htmlArray.push(data[i].firstName + " " + data[i].lastName + ": " + data[i].email + "<br>" )
+// 				};
+
+// 				// $( "#resultsHere" ).text( htmlArray );
+
+// 			}
+
+// 		})
+// 	})
+// })
+
+
+
+
+
+
+
+
+
+
+	// //setup before functions
+	// var typingTimer = Date.now();                //timer identifier
+	// var doneTypingInterval = Date.now() + 300;  //time in ms, 5 second for example
+	// var $input = $('input#searchbar');
+
+	// //on keyup, start the countdown
+	// $input.on('keyup', function () {
+	// 	clearTimeout(typingTimer);
+	// 	typingTimer = setTimeout(doneTyping, doneTypingInterval);
+	// });
+
+	// var timeNowInMs = Date.now();
+	// var time300MsLater = timeNowInMs + 300;
+	// if Date.now() > time300MsLater
+
+
 
 
 //de data die het inneemt: de jquery versie van wat er in de zoekbar getypt wordt
