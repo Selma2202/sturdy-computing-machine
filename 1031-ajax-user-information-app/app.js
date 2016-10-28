@@ -125,21 +125,9 @@ app.post('/ajax1', (req, res)=>{
 		console.log(resultArray)
 
 		//HET TERUGSTUREN VAN DE VERKEREGEN DATA
-		res.send(resultArray)//komt wel in browser, maar is niet verder mee te werken in script 
+		res.send(resultArray) 
 	})
 })
-
-
-
-//de req die het inneemt: wat op de dataplek van script.js staat (na path)
-//res is wat het terugstuurt naar hetzelfde path in script.js
-
-
-
-
-
-
-
 
 //what localhost can this app be found
 app.listen (8000, () => {
