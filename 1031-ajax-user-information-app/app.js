@@ -47,14 +47,14 @@ app.post('/search', (req, resp) => {
 			console.log("\nSearch results will now be displayed in the browser")//informative for terminal readers.
 			for (let i = 0; i < parsedData.length; i++) {//loops through all objects
 				if(req.body.searchbar.toLowerCase() == parsedData[i].firstName.toLowerCase() 
-				|| req.body.searchbar.toLowerCase() == parsedData[i].lastName.toLowerCase() 
-				|| req.body.searchbar.toLowerCase() == parsedData[i].firstName.toLowerCase() + " " + parsedData[i].lastName.toLowerCase() + ": " + parsedData[i].email.toLowerCase()
+					|| req.body.searchbar.toLowerCase() == parsedData[i].lastName.toLowerCase() 
+					|| req.body.searchbar.toLowerCase() == parsedData[i].firstName.toLowerCase() + " " + parsedData[i].lastName.toLowerCase() + ": " + parsedData[i].email.toLowerCase()
 				|| req.body.searchbar.toLowerCase() == parsedData[i].firstName.toLowerCase() + ' ' + parsedData[i].lastName.toLowerCase()){//will only look for when input matches first- OR last-name
 
 					//when a match occurs, it will retrieve all data for this loopnumber and push it into the empty array.
-					resultArray.push('User ' + (i+1) + ':', 'First name: ' + parsedData[i].firstName, 'Last name: ' + parsedData[i].lastName, 'E-mail: ' + parsedData[i].email, '~~~~~~~~~~')
-				}
+				resultArray.push('User ' + (i+1) + ':', 'First name: ' + parsedData[i].firstName, 'Last name: ' + parsedData[i].lastName, 'E-mail: ' + parsedData[i].email, '~~~~~~~~~~')
 			}
+		}
 			//console.log (resultArray)
 			resp.render('returnuser', {data: resultArray})
 		})
@@ -97,30 +97,20 @@ app.post('/ajax1', (req, res)=>{
 
 	var inputLetter = req.body.userInput
 
-	// console.log("in the backend, i console: " + inputLetter)
-
 	fs.readFile( __dirname + '/data.json', (error, data) => {
 		if (error) throw error
 
-			let resultArray = [];//empty array to fill with results matching the inputted letter, to return and display results in the browser.
-
-		//DIT WERKT console.log(resultArray + "aaaaaa")
-
+		let resultArray = [];//empty array to fill with results matching the inputted letter, to return and display results in the browser.
 		let parsedData = JSON.parse(data)
 		//DITWERKTconsole.log(JSON.stringify(parsedData[1]) + '111111')
 
-
+		//controleren voor elke letter(combinatie) of deze in een string uit parsedData voorkomt, namelijk als deze niet gelijk is aan -1
 		for (var i = 0; i < parsedData.length; i++) {
-
-
 			if ((parsedData[i].firstName.toLowerCase().indexOf(inputLetter.toLowerCase()) !== -1)  
-			|| (parsedData[i].lastName.toLowerCase().indexOf(inputLetter.toLowerCase()) !== -1)) { //DIT WERKT
+			|| (parsedData[i].lastName.toLowerCase().indexOf(inputLetter.toLowerCase()) !== -1)) {
 
 				resultArray.push(parsedData[i])
-		}
-
-			//DIT WERKTconsole.log(JSON.stringify(parsedData[i]) + '222222')
-			//dit werktconsole.log(resultArray + 'bbbbbb')
+			}
 		}
 		console.log(resultArray)
 
